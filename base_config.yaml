@@ -1,0 +1,35 @@
+# 该文件是开发环境中的配置信息1
+environment: "development"
+
+#grpc 启动的端口
+grpc:
+  address: "0.0.0.0:12382"
+  sku: "sku:12381"
+  item: "item.grpc.xxjio.com:80"
+  goods: "goods:12382"
+  login: "login:12383"
+
+
+#mysql
+mysql:
+  host:  "localhost"
+  user: "root"
+  password: ""
+  database: ""
+  port: 3306
+
+#redis 配置
+redis:
+  addr: "0.0.0.0:6379"
+  password: ""
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+
+# 测试
+bot:
+  token: ""
+  guild_id: 996317383935410267
+  MOD_role_ids:
+    - 997028414731067482
+

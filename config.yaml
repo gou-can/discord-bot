@@ -1,0 +1,67 @@
+# 该文件是开发环境中的配置信息1
+environment: "development"
+
+#grpc 启动的端口
+grpc:
+  address: "0.0.0.0:12382"
+  sku: "sku:12381"
+  item: "item.grpc.xxjio.com:80"
+  goods: "goods:12382"
+  login: "login:12383"
+
+
+#启动的http端口
+port: "8080"
+
+#jwt
+jwt:
+  secret: ""
+
+#mysql
+mysql:
+  host:  "localhost"
+  user: "root"
+  password: ""
+  database: ""
+  port: 3306
+
+#redis 配置
+redis:
+  addr: "0.0.0.0:6379"
+  password: ""
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+
+# Kafka 配置 暂时没用
+kafka:
+  addr: "127.0.0.1:9092"
+  timeout: 3s
+  retry:
+    max: 3
+    backoff: 0.5s
+  brokers:
+    - 127.0.0.1:9092
+  topic: xmadx-logs
+  ses_topic: "loginVerificationCode"
+  sign_topic: "kafkaConsumerSign"
+  discord_trade_topic: "dinosaurTradeTopic"
+  dinosaur_trade_topic: "dinosaurTradeTopic"
+
+## 测试
+producerc-bot:
+  token: ""
+  guild_id: 1051759414782210078
+  MOD_role_ids:
+    - 1051765705797795900
+  team_channel_id: 1051759453181055037
+  members_channel_id: 1062940019800682636
+  alpha_call_role_id: 1062972751918411776
+
+# 正式
+#producerc-bot:
+#  token: "MTA1MTc1NTg2MzM1NTk1NzI2OA.GFxtV_.KnKv2tvakV6tenZsS76LuvhO7uyh-I_8p0GQGw"
+#  guild_id: 1049954321464311870
+#  MOD_role_ids:
+#    - 1050009178896347177
+#  team_channel_id: 1049954785723420747
