@@ -49,7 +49,7 @@ kafka:
   dinosaur_trade_topic: "dinosaurTradeTopic"
 
 ## 测试
-producerc-bot:
+bot:
   token: ""
   guild_id: 1051759414782210078
   MOD_role_ids:
@@ -57,11 +57,3 @@ producerc-bot:
   team_channel_id: 1051759453181055037
   members_channel_id: 1062940019800682636
   alpha_call_role_id: 1062972751918411776
-
-# 正式
-#producerc-bot:
-#  token: "MTA1MTc1NTg2MzM1NTk1NzI2OA.GFxtV_.KnKv2tvakV6tenZsS76LuvhO7uyh-I_8p0GQGw"
-#  guild_id: 1049954321464311870
-#  MOD_role_ids:
-#    - 1050009178896347177
-#  team_channel_id: 1049954785723420747
