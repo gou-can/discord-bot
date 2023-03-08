@@ -40,6 +40,5 @@ class CMD(CogExtension):
         await ctx.send("pong")
 
 
-
 async def setup(bot: commands.Bot):
     await bot.add_cog(CMD(bot))

@@ -22,5 +22,6 @@ class Listener(CogExtension):
         print("inviter.id", result)
         print("member.id", member)
 
+
 async def setup(bot: commands.Bot):
     await bot.add_cog(Listener(bot))
