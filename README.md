@@ -12,6 +12,7 @@ AttributeError: module 'discord' has no attribute 'Intents'
 
 执行
 ```shell
+pip config set global.index-url https://pypi.org/simple
 pip uninstall discord.py
 pip uninstall discord
 pip install -U discord.py 

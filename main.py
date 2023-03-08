@@ -14,7 +14,7 @@ import cache
 import init_config
 import discord
 from discord.ext import commands
-
+import keep_alive
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -39,5 +39,6 @@ if __name__ == '__main__':
             task_lt.append(bot.load_extension(f'cmds.{file_name[:-3]}'))
             # await bot.load_extension(f'cmds.{file_name[:-3]}')
     loops.run_until_complete(asyncio.wait(task_lt))
+    keep_alive.keep_alive()
     bot.run(config[cache.Cache.bot_cfg_Key]['token'])
 
