@@ -1,5 +1,5 @@
 from discord.ext import commands
-import DiscordUtils
+# import DiscordUtils
 from cmds.classes import CogExtension
 from business import account_business
 
@@ -7,7 +7,7 @@ from business import account_business
 class Listener(CogExtension):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.tracker = DiscordUtils.InviteTracker(self.bot)
+        # self.tracker = DiscordUtils.InviteTracker(self.bot)
 
     @commands.Cog.listener()
     async def on_interaction(self, interaction):
