@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 """
     @author:goukaiyu
     @email:goukaiyu@163.com
@@ -8,3 +8,4 @@
     @project_name: Yingyue-bot
     日志
 """
+config_file = './config.yaml'
