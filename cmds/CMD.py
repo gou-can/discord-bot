@@ -76,7 +76,7 @@ class CMD(CogExtension):
         num = points.get_points(ctx.author.id)
         await ctx.reply(f'{num}')
 
-    @commands.command(name='add-points', description='个人积分(测试用,无缓存)')
+    @commands.command(name='add-points', description='增加个人积分(测试用,无缓存)')
     async def add_points(self, ctx, num: int):
         points.add_points(ctx.author.id, num)
         await ctx.reply(f'add-points ok')
