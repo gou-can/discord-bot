@@ -40,7 +40,7 @@ class CMD(CogExtension):
         await ctx.send("pong")
 
     # 热加载
-    @commands.command(name='load-ext')
+    @commands.command(name='load-ext', description='热加载, 需要指定加载文件')
     @commands.has_permissions(manage_guild=True)
     async def load_ext(self, ctx, file_name):
         try:
@@ -50,7 +50,7 @@ class CMD(CogExtension):
             await ctx.send(f'load-ext err {str(e)}')
 
     # 热卸载
-    @commands.command(name='unload-ext')
+    @commands.command(name='unload-ext', description='热卸载,但是不能卸载cmd')
     @commands.has_permissions(manage_guild=True)
     async def unload_ext(self, ctx, file_name: str):
         if file_name.lower() == 'cmd':
@@ -63,7 +63,7 @@ class CMD(CogExtension):
             await ctx.send(f'unload-ext err {str(e)}')
 
     # 热重载
-    @commands.command(name='reload-ext')
+    @commands.command(name='reload-ext', description='热重载, 需要指定重载文件')
     async def reload_ext(self, ctx, file_name):
         try:
             await self.bot.reload_extension(f'cmds.{file_name}')
