@@ -39,6 +39,30 @@ class CMD(CogExtension):
     async def ping(self, ctx):
         await ctx.send("pong")
 
+    @commands.command(name='load-ext')
+    async def load_ext(self, ctx, file_name):
+        try:
+            await self.bot.load_extension(f'cmds.{file_name}')
+            await ctx.send(f'load-ext {file_name} ok!')
+        except Exception as e:
+            await ctx.send(f'load-ext err {str(e)}')
+
+    @commands.command(name='unload-ext')
+    async def unload_ext(self, ctx, file_name):
+
+        try:
+            await self.bot.unload_extension(f'cmds.{file_name}')
+            await ctx.send(f'unload-ext {file_name} ok!')
+        except Exception as e:
+            await ctx.send(f'unload-ext err {str(e)}')
+
+    @commands.command(name='reload-ext')
+    async def reload_ext(self, ctx, file_name):
+        try:
+            await self.bot.reload_extension(f'cmds.{file_name}')
+            await ctx.send(f'reload-ext {file_name} ok!')
+        except Exception as e:
+            await ctx.send(f'reload-ext err {str(e)}')
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(CMD(bot))

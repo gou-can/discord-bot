@@ -9,7 +9,7 @@ You don't have enough WU, engage in community activities to earn more!!"""
 
 
 async def send_steal_msg(ctx, channel):
-    print(channel)
+
     item = discord.ui.Button(custom_id='steal:start', label='开始Start')
     view = discord.ui.View()
 
