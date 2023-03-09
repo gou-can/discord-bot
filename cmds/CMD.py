@@ -14,7 +14,7 @@ from discord.ext import commands
 from configger.config import config
 from cache import Cache
 from cmds.classes import CogExtension
-
+from business import points
 
 
 # 权限判断装饰器
@@ -70,6 +70,16 @@ class CMD(CogExtension):
             await ctx.send(f'reload-ext {file_name} ok!')
         except Exception as e:
             await ctx.send(f'reload-ext err {str(e)}')
+
+    @commands.command(name='points', description='个人积分(测试用,无缓存)')
+    async def get_points(self, ctx: commands.Context):
+        num = points.get_points(ctx.author.id)
+        await ctx.reply(f'{num}')
+
+    @commands.command(name='add-points', description='个人积分(测试用,无缓存)')
+    async def add_points(self, ctx, num: int):
+        points.add_points(ctx.author.id, num)
+        await ctx.reply(f'add-points ok')
 
 
 async def setup(bot: commands.Bot):
