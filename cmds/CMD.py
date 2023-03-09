@@ -39,7 +39,9 @@ class CMD(CogExtension):
     async def ping(self, ctx):
         await ctx.send("pong")
 
+    # 热加载
     @commands.command(name='load-ext')
+    @commands.has_permissions(manage_guild=True)
     async def load_ext(self, ctx, file_name):
         try:
             await self.bot.load_extension(f'cmds.{file_name}')
@@ -47,15 +49,20 @@ class CMD(CogExtension):
         except Exception as e:
             await ctx.send(f'load-ext err {str(e)}')
 
+    # 热卸载
     @commands.command(name='unload-ext')
-    async def unload_ext(self, ctx, file_name):
-
+    @commands.has_permissions(manage_guild=True)
+    async def unload_ext(self, ctx, file_name: str):
+        if file_name.lower() == 'cmd':
+            await ctx.send("can't unload cmd")
+            return
         try:
             await self.bot.unload_extension(f'cmds.{file_name}')
             await ctx.send(f'unload-ext {file_name} ok!')
         except Exception as e:
             await ctx.send(f'unload-ext err {str(e)}')
 
+    # 热重载
     @commands.command(name='reload-ext')
     async def reload_ext(self, ctx, file_name):
         try:
@@ -63,6 +70,7 @@ class CMD(CogExtension):
             await ctx.send(f'reload-ext {file_name} ok!')
         except Exception as e:
             await ctx.send(f'reload-ext err {str(e)}')
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(CMD(bot))
