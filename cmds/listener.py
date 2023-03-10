@@ -1,7 +1,7 @@
+import discord
 from discord.ext import commands
-# import DiscordUtils
 from cmds.classes import CogExtension
-from business import account_business
+from business import dice
 
 
 class Listener(CogExtension):
@@ -11,16 +11,19 @@ class Listener(CogExtension):
 
     @commands.Cog.listener()
     async def on_interaction(self, interaction):
-        pass
+        try:
+            await dice.listen_steal_choice(interaction)
+        except Exception as e:
+            print("listen_steal_choice err", e)
+        try:
+            await dice.listen_steal_start(interaction)
+        except Exception as e:
+            print("listen_steal_start err", e)
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
         print(member)
-        result = await self.tracker.fetch_inviter(member)
-        print("inviter.id", result.id)
-        print("member.id", member.id)
-        print("inviter.id", result)
-        print("member.id", member)
+
 
 
 async def setup(bot: commands.Bot):

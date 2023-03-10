@@ -14,6 +14,7 @@ from discord.ext import commands
 from configger.config import config
 from cache import Cache
 from cmds.classes import CogExtension
+from business import dice
 from business import points
 
 
@@ -33,7 +34,7 @@ class CMD(CogExtension):
     # 错误处理
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
-        pass
+        print(error)
 
     @commands.command(name='ping')
     async def ping(self, ctx):
@@ -80,6 +81,11 @@ class CMD(CogExtension):
     async def add_points(self, ctx, num: int):
         points.add_points(ctx.author.id, num)
         await ctx.reply(f'add-points ok')
+
+    @commands.command(name='send-steal-msg')
+    async def send_steal_msg1(self, ctx, channel: discord.TextChannel):
+        await dice.send_steal_msg(ctx, channel)
+        await ctx.send(f'send-steal-msg ok')
 
 
 async def setup(bot: commands.Bot):
